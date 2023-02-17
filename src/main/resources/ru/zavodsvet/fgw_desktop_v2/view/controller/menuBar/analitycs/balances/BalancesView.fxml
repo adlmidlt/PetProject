@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="balanceMainWindow" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.analitycs.balances.BalancesViewController">
+    <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+          AnchorPane.topAnchor="0.0">
+        <TitledPane prefHeight="22.0" prefWidth="1121.0" text="Фильтр">
+            <HBox>
+                <VBox prefHeight="88.0" prefWidth="970.0">
+                    <HBox>
+                        <HBox prefHeight="27.0" prefWidth="320.0">
+                            <fx:include fx:id="selectionKDNameView"
+                                        source="../../../selectionWindow/SelectionKDNameView.fxml"/>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="307.0">
+                            <fx:include fx:id="selectionProdPackView"
+                                        source="../../../selectionWindow/SelectionProdPackView.fxml"/>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="344.0">
+                            <fx:include fx:id="selectionLocStoreView"
+                                        source="../../../selectionWindow/SelectionLocStoreView.fxml"/>
+                        </HBox>
+                    </HBox>
+
+                    <HBox>
+                        <HBox>
+                            <CheckBox fx:id="dateCreationManufacturingProductCheckBox" mnemonicParsing="false"
+                                      prefHeight="27.0" prefWidth="16.0"/>
+                            <Label text=" дата произв. ">
+                                <font>
+                                    <Font size="18.0"/>
+                                </font>
+                            </Label>
+                            <fx:include fx:id="dateManufacturingProductView"
+                                        source="../../../template/TemplateDateView.fxml"/>
+                        </HBox>
+                        <HBox>
+                            <Label text="   остатки на ">
+                                <font>
+                                    <Font size="18.0"/>
+                                </font>
+                            </Label>
+                            <fx:include fx:id="dateTimeOfPeriodBalancesView"
+                                        source="../../../template/TemplateDateTimeView.fxml"/>
+                        </HBox>
+                        <VBox.margin>
+                            <Insets top="5.0"/>
+                        </VBox.margin>
+                    </HBox>
+
+                    <HBox>
+                        <HBox prefHeight="29.0" prefWidth="1018.0">
+                            <Label prefHeight="27.0" prefWidth="132.0" text="объединить по">
+                                <font>
+                                    <Font size="18.0"/>
+                                </font>
+                            </Label>
+                            <CheckBox fx:id="prodPackCheckBox" alignment="CENTER" mnemonicParsing="false"
+                                      prefHeight="29.0" prefWidth="19.0"/>
+                            <Label prefHeight="27.0" prefWidth="182.0" text="вариантам упаковки">
+                                <font>
+                                    <Font size="18.0"/>
+                                </font>
+                            </Label>
+                            <CheckBox fx:id="dateCreationCheckBox" mnemonicParsing="false" prefHeight="36.0"
+                                      prefWidth="21.0"/>
+                            <Label prefHeight="24.0" prefWidth="131.0" text="дате создания">
+                                <font>
+                                    <Font size="18.0"/>
+                                </font>
+                            </Label>
+                            <CheckBox fx:id="locStoreCheckBox" mnemonicParsing="false" prefHeight="29.0"
+                                      prefWidth="20.0"/>
+                            <Label prefHeight="24.0" prefWidth="170.0" text="участкам хранения">
+                                <font>
+                                    <Font size="18.0"/>
+                                </font>
+                            </Label>
+                            <CheckBox fx:id="childLocStoreCheckBox" mnemonicParsing="false" prefHeight="34.0"
+                                      prefWidth="22.0" selected="true"/>
+                            <Label prefHeight="23.0" prefWidth="247.0" text="дочерним участкам хранения">
+                                <font>
+                                    <Font size="18.0"/>
+                                </font>
+                            </Label>
+                        </HBox>
+                        <VBox.margin>
+                            <Insets top="5.0"/>
+                        </VBox.margin>
+                    </HBox>
+                </VBox>
+                <Button fx:id="applyFilterBtn" mnemonicParsing="false" prefHeight="89.0" prefWidth="129.0"
+                        text="Применить">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Button>
+            </HBox>
+        </TitledPane>
+
+        <VBox prefHeight="556.0" prefWidth="1093.0" VBox.vgrow="ALWAYS">
+
+            <!--	ПОИСК ПО КОЛОНКАМ-->
+            <HBox fx:id="searchByColumnsBalancesHBox" prefHeight="31.0" prefWidth="870.0" spacing="5.0">
+                <padding>
+                    <Insets bottom="3.0" left="5.0" right="7.0" top="3.0"/>
+                </padding>
+                <TextField fx:id="artSearchTF" prefHeight="25.0" prefWidth="71.0" promptText="Артикул"/>
+                <TextField fx:id="konsnameSearchTF" prefHeight="25.0" prefWidth="215.0"
+                           promptText="Конструкторское наименование"/>
+                <TextField fx:id="colorSearchTF" prefHeight="25.0" prefWidth="83.0" promptText="Цвет"/>
+                <TextField fx:id="rowsSearchTF" prefHeight="25.0" prefWidth="69.0" promptText="Рядность"/>
+                <TextField fx:id="couSearchTF" prefHeight="25.0" prefWidth="68.0" promptText="Кол-во в ряду"/>
+                <TextField fx:id="dwhSearchTF" prefHeight="25.0" prefWidth="108.0" promptText="Г/Ш/В"/>
+                <TextField fx:id="dtcreateSearchTF" prefHeight="25.0" prefWidth="104.0" promptText="Дата производства"/>
+                <TextField fx:id="locnameSearchTF" prefHeight="25.0" prefWidth="104.0" promptText="Участок хранения"/>
+            </HBox>
+
+            <!--	Таблица Остатки-->
+            <TableView fx:id="balancesTable" prefHeight="278.0" prefWidth="1084.0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn prefWidth="75.0" text="Артикул">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="art"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="225.0" text="Конструкторское&#10;  наименование">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="konsname"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="85.0" text="Цвет">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="color"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="75.0" text="Рядность">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="rows"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="75.0" text="Кол-во в &#10;    ряду">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="cou"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="110.0" text="Г/Ш/В">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="dwh"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="110.0" text="        Дата &#10;производства">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="dtcreate"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="110.0" text="Участок хранения">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="locname"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="110.0" text="Кол-во п/п">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="balances"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="110.0" text="Кол-во изделий">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="pieces"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+                <!--Контекстное меню-->
+                <contextMenu>
+                      <ContextMenu>
+                          <items>
+                              <MenuItem fx:id="goToCardProdPackMenuItem" mnemonicParsing="false" text="Карточка" />
+                              <MenuItem fx:id="exportInExcelContextMenu" mnemonicParsing="false" text="Экспорт в Эксель" />
+                          </items>
+                      </ContextMenu>
+                  </contextMenu>
+            </TableView>
+
+            <!--	 ПОДВАЛ.-->
+            <HBox prefHeight="25.0" prefWidth="1093.0">
+                <Label prefHeight="27.0" prefWidth="61.0" text="Строк:">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="rowCountLabel" prefHeight="27.0" prefWidth="61.0" text="0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+                <Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="155.0" text="Кол-во п/п: ">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="sumKolLabel" prefHeight="27.0" prefWidth="97.0" text="0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+                <Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="146.0" text="Кол-во изд.: ">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="sumPiecesLabel" prefHeight="27.0" prefWidth="272.0" text="0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+            </HBox>
+            <Separator prefHeight="5.0" prefWidth="1091.0"/>
+
+            <Label alignment="CENTER" prefHeight="27.0" prefWidth="1157.0" text="Детализация" textAlignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Label>
+            <Separator prefHeight="0.0" prefWidth="1093.0"/>
+
+            <!--		Таблица детализации.-->
+            <TableView fx:id="detailsBalancesTable" prefHeight="164.0" prefWidth="1093.0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn prefWidth="75.0" text="Артикул">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="art"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="225.0" text="Конструкторское&#10;  наименование">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="konsname"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="85.0" text="Цвет">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="color"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="75.0" text="Рядность">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="rows"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="75.0" text="Кол-во в &#10;    ряду">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="cou"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="110.0" text="Г/Ш/В">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="dwh"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="110.0" text="        Дата &#10;производства">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="dtcreate"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="110.0" text="Участок хранения">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="locname"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="110.0" text="Кол-во п/п">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="balances"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="110.0" text="Кол-во изделий">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="pieces"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+
+            <!--	 ПОДВАЛ.-->
+            <HBox prefHeight="0.0" prefWidth="1093.0">
+                <Label prefHeight="27.0" prefWidth="61.0" text="Строк:">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="rowDetailCountLabel" prefHeight="27.0" prefWidth="61.0" text="0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+                <Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="155.0" text="Кол-во п/п: ">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="sumDetailKolLabel" prefHeight="27.0" prefWidth="97.0" text="0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+                <Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="146.0" text="Кол-во изд.: ">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="sumDetailPiecesLabel" prefHeight="27.0" prefWidth="272.0" text="0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+            </HBox>
+        </VBox>
+    </VBox>
+
+</AnchorPane>

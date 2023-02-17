@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="600.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.handbook.prodPack.ProdPackViewController">
+
+    <VBox prefHeight="600.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <!--	ПОИСК ПО КОЛОНКАМ-->
+        <HBox fx:id="filterColumnsProdPackHBox" prefHeight="31.0" prefWidth="653.0" spacing="5.0">
+            <padding>
+                <Insets bottom="3.0" left="5.0" right="7.0" top="3.0"/>
+            </padding>
+            <TextField fx:id="artSearchTF" prefHeight="25.0" prefWidth="77.0" promptText="Артикул"/>
+            <TextField fx:id="packnameSearchTF" prefHeight="25.0" prefWidth="228.0"
+                       promptText="Конструкторское наименование"/>
+            <TextField fx:id="colorSearchTF" prefHeight="25.0" prefWidth="84.0" promptText="Цвет"/>
+            <TextField fx:id="rowsSearchTF" prefHeight="25.0" prefWidth="77.0" promptText="Рядность"/>
+            <TextField fx:id="couSearchTF" prefHeight="25.0" prefWidth="75.0" promptText="Кол-во в ряду"/>
+            <TextField fx:id="dwhSearchTF" prefHeight="25.0" prefWidth="115.0" promptText="Г/Ш/В">
+                <padding>
+                    <Insets right="3.0"/>
+                </padding>
+                <HBox.margin>
+                    <Insets/>
+                </HBox.margin>
+            </TextField>
+        </HBox>
+
+        <!--	Таблица Варианта упаковки-->
+        <TableView fx:id="prodPackTable" prefHeight="368.0" prefWidth="653.0" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn prefWidth="75.0" text="Артикул">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="art"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="225.0" text="Конструкторское&#10;  наименование">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="packname"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="85.0" text="Цвет">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="color"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="75.0" text="Рядность">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="rows"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="75.0" text="Кол-во в &#10;    ряду">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="cou"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Г/Ш/В">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dwh"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+            <contextMenu>
+                  <ContextMenu>
+                      <items>
+                          <MenuItem fx:id="cardProdPackMenuItem" mnemonicParsing="false" text="Карточка"/>
+                          <MenuItem fx:id="exportInExcelMenuItem" mnemonicParsing="false" text="Экспорт в Эксель"/>
+                      </items>
+                  </ContextMenu>
+              </contextMenu>
+        </TableView>
+    </VBox>
+
+</AnchorPane>

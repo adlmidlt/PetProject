@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="726.0" prefWidth="1235.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.operation.manufacturingProduct.ManufacturingProductViewController">
+
+    <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox prefHeight="3.0" prefWidth="829.0">
+            <HBox prefHeight="27.0" prefWidth="464.0">
+                <fx:include fx:id="selectionDateTimeOfPeriodView" source="../../../selectionWindow/SelectionDateTimeOfPeriodView.fxml" />
+            </HBox>
+
+            <HBox prefHeight="27.0" prefWidth="344.0">
+                <fx:include fx:id="selectionLocStoreView" source="../../../selectionWindow/SelectionLocStoreView.fxml" />
+            </HBox>
+
+            <Button fx:id="applyFilterBtn" mnemonicParsing="false" prefHeight="15.0" prefWidth="120.0" text="Применить" />
+         <VBox.margin>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </VBox.margin>
+        </HBox>
+
+        <Separator prefWidth="200.0" />
+
+        <!--	ПОИСК ПО КОЛОНКАМ-->
+        <HBox fx:id="searchColumnsManufacturingPackHBox" prefHeight="31.0" prefWidth="870.0" spacing="5.0">
+            <padding>
+                <Insets bottom="3.0" left="5.0" right="7.0" top="3.0" />
+            </padding>
+            <TextField id="artSearchTF" fx:id="artSearchTF" prefHeight="25.0" prefWidth="60.0" promptText="Артикул" />
+            <TextField id="prodSearchTF" fx:id="prodSearchTF" prefHeight="25.0" prefWidth="244.0" promptText="Наименование продукта" />
+            <TextField id="barcodeSearchTF" fx:id="barcodeSearchTF" prefHeight="25.0" prefWidth="105.0" promptText="ШК" />
+            <TextField id="dtactSearchTF" fx:id="dtactSearchTF" prefHeight="25.0" prefWidth="150.0" promptText="Дата действия" />
+            <TextField id="dtcreateSearchTF" fx:id="dtcreateSearchTF" prefHeight="25.0" prefWidth="106.0" promptText="Дата производства" />
+            <TextField id="actionSearchTF" fx:id="actionSearchTF" prefHeight="25.0" prefWidth="109.0" promptText="Действие" />
+            <TextField id="fioSearchTF" fx:id="fioSearchTF" prefHeight="25.0" prefWidth="165.0" promptText="ФИО" />
+            <TextField id="locpackSearchTF" fx:id="locpackSearchTF" prefHeight="25.0" prefWidth="104.0" promptText="Линия упаковки" />
+            <TextField id="locstoreSearchTF" fx:id="locstoreSearchTF" prefHeight="25.0" prefWidth="104.0" promptText="Участок хранения" />
+        </HBox>
+
+        <!--	Таблица Ордер варианта упаковки-->
+        <TableView fx:id="manufacturingProductTable" prefHeight="362.0" prefWidth="1235.0" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn prefWidth="67.0" text="Артикул">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="art" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="250.0" text="Наименование продукта">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="prod" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="ШК">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="barcode" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="150.0" text="Дата действия">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dtact" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="120.0" text="Дата производства">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dtcreate" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Действие">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="action" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="170.0" text="ФИО">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="fio" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Линия упаковки">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="locpack" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Участок хранения">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="locstore" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem fx:id="goToCardProdPackMenuItem" mnemonicParsing="false" text="Карточка варианта упаковки" />
+                        <MenuItem fx:id="goToCardLocStoreMenuItem" mnemonicParsing="false" text="Карточка участка упаковки" />
+                        <MenuItem fx:id="goToCardOperStoreMenuItem" mnemonicParsing="false" text="Перейти к связанной операции" />
+                        <MenuItem fx:id="goToGifTicketStoreMenuItem" mnemonicParsing="false" text="Просмотр этикетки" />
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+        <HBox prefHeight="28.0" prefWidth="1055.0">
+            <Label prefHeight="27.0" prefWidth="61.0" text="Строк:">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="rowCountLabel" prefHeight="27.0" prefWidth="61.0" text="0">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+        </HBox>
+    </VBox>
+
+</AnchorPane>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="654.0" prefWidth="1053.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.operation.allOperation.AllOperationViewController">
+
+    <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+          AnchorPane.topAnchor="0.0">
+
+        <!--    Фильтр -->
+        <TitledPane animated="false" prefHeight="21.0" prefWidth="1053.0" text="Фильтр" VBox.vgrow="ALWAYS">
+            <HBox prefHeight="76.0" prefWidth="1051.0">
+                <VBox prefHeight="111.0" prefWidth="915.0">
+                    <HBox>
+                        <HBox prefHeight="27.0" prefWidth="297.0">
+                            <fx:include fx:id="selectionVidOperView"
+                                        source="../../../selectionWindow/SelectionVidOperView.fxml"/>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="320.0">
+                            <fx:include fx:id="selectionKDNameView"
+                                        source="../../../selectionWindow/SelectionKDNameView.fxml"/>
+                        </HBox>
+                        <HBox prefHeight="27.0" prefWidth="291.0">
+                            <fx:include fx:id="selectionProdPackView"
+                                        source="../../../selectionWindow/SelectionProdPackView.fxml"/>
+                        </HBox>
+                    </HBox>
+
+                    <HBox prefHeight="18.0" prefWidth="1045.0">
+                        <HBox prefHeight="13.0" prefWidth="991.0">
+                            <HBox prefHeight="37.0" prefWidth="188.0">
+                                <CheckBox fx:id="dateCreationOperCheckBox" mnemonicParsing="false" prefHeight="27.0"
+                                          prefWidth="41.0" selected="true"/>
+                                <Label prefHeight="27.0" prefWidth="277.0" text=" создание операции">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                            </HBox>
+                            <HBox prefHeight="27.0" prefWidth="310.0">
+                                <fx:include fx:id="selectionDateOfPeriodOperView"
+                                            source="../../../selectionWindow/SelectionDateOfPeriodView.fxml"/>
+                            </HBox>
+                            <HBox alignment="CENTER" prefHeight="37.0" prefWidth="405.0">
+                                <fx:include fx:id="selectionEmployeeOperView"
+                                            source="../../../selectionWindow/SelectionEmployeeView.fxml"/>
+                            </HBox>
+                        </HBox>
+                        <VBox.margin>
+                            <Insets top="5.0"/>
+                        </VBox.margin>
+                    </HBox>
+
+                    <HBox prefHeight="12.0" prefWidth="1045.0">
+                        <HBox prefHeight="13.0" prefWidth="991.0">
+                            <HBox prefHeight="37.0" prefWidth="188.0">
+                                <CheckBox fx:id="dateCreationOrderCheckBox" mnemonicParsing="false" prefHeight="27.0"
+                                          prefWidth="41.0"/>
+                                <Label prefHeight="27.0" prefWidth="277.0" text=" создание ордеров">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                            </HBox>
+                            <HBox prefHeight="27.0" prefWidth="310.0">
+                                <fx:include fx:id="selectionDateOfPeriodOrderView"
+                                            source="../../../selectionWindow/SelectionDateOfPeriodView.fxml"/>
+                            </HBox>
+                            <HBox alignment="CENTER" prefHeight="37.0" prefWidth="405.0">
+                                <fx:include fx:id="selectionEmployeeOrderView"
+                                            source="../../../selectionWindow/SelectionEmployeeView.fxml"/>
+                            </HBox>
+                        </HBox>
+                        <VBox.margin>
+                            <Insets top="5.0"/>
+                        </VBox.margin>
+                    </HBox>
+                </VBox>
+
+                <Button fx:id="applyFilterBtn" mnemonicParsing="false" prefHeight="89.0" prefWidth="114.0"
+                        text="Применить">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Button>
+            </HBox>
+        </TitledPane>
+
+        <VBox VBox.vgrow="ALWAYS">
+
+            <!--	Таблица Все операции. -->
+            <TableView fx:id="operTable" prefHeight="679.0" prefWidth="1053.0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn prefWidth="75.0" text="ИД">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="103.0" text="Вид операции">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="vidoper"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="110.0" text="Дата создания &#10;    операции">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="dtcreate"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="150.0" text="Создал операцию">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="perfcreate"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="110.0" text="Дата создания &#10;      ордера">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="dtord"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="150.0" text="Создал ордер">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="perford"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="101.0" style="-fx-alignment: center-right;" text="  Кол-во&#10; изделий">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="pieces"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="200.0" style="-fx-alignment: center-right;" text="Связанные документы">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="permit"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+                <!--		Контекстное меню.-->
+                <contextMenu>
+                    <ContextMenu>
+                        <items>
+                            <Menu text="Добавить">
+                                <MenuItem fx:id="arrivalMenuItem" mnemonicParsing="false" text="Приход"/>
+                                <MenuItem fx:id="movementMenuItem" mnemonicParsing="false" text="Перемещение"/>
+                                <MenuItem fx:id="debitMenuItem" mnemonicParsing="false" text="Списание"/>
+                                <MenuItem fx:id="saleMenuItem" mnemonicParsing="false" text="Продажа"/>
+                                <MenuItem fx:id="inventoryMenuItem" mnemonicParsing="false" text="Инвентаризация"/>
+                                <MenuItem fx:id="reGradingMenuItem" mnemonicParsing="false" text="Пересортица"/>
+                                <MenuItem fx:id="rePackingMenuItem" mnemonicParsing="false" text="Перетарка"/>
+                            </Menu>
+                            <MenuItem fx:id="delOperMenuItem" mnemonicParsing="false" text="Удалить"/>
+                            <MenuItem fx:id="updAllOperMenuItem" mnemonicParsing="false" text="Обновить"/>
+                        </items>
+                    </ContextMenu>
+                </contextMenu>
+            </TableView>
+
+            <!--	 ПОДВАЛ.-->
+            <HBox prefHeight="28.0" prefWidth="1055.0">
+                <Label prefHeight="27.0" prefWidth="61.0" text="Строк:">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="rowCountLabel" prefHeight="27.0" prefWidth="61.0" text="0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+                <Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="146.0" text="Кол-во изд.: ">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="sumPiecesLabel" prefHeight="27.0" prefWidth="272.0" text="0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+            </HBox>
+        </VBox>
+    </VBox>
+
+</AnchorPane>

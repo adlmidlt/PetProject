@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.MenuBarViewController">
+
+    <MenuBar prefHeight="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+
+        <!--		Пункт меню-бар "ОПЕРАЦИИ"-->
+        <Menu mnemonicParsing="false" text="Операции">
+            <MenuItem fx:id="allOperItem" mnemonicParsing="false" text="Все операции"/>
+            <MenuItem fx:id="manufacturingProductItem" mnemonicParsing="false" text="Производство продукции"/>
+            <MenuItem fx:id="testReportItem" mnemonicParsing="false" text="Протоколы испытаний"/>
+        </Menu>
+
+        <!--		Пункт меню-бар "АНАЛИТИКА"-->
+        <Menu mnemonicParsing="false" text="Аналитика">
+            <MenuItem fx:id="balancesItem" mnemonicParsing="false" text="Остатки"/>
+            <MenuItem fx:id="turnoverSheetItem" mnemonicParsing="false" text="Оборотная ведомость"/>
+        </Menu>
+
+        <!--		Пункт меню-бар "СПРАВОЧНИКИ"-->
+        <Menu mnemonicParsing="false" text="Справочники">
+            <MenuItem fx:id="locStoreItem" mnemonicParsing="false" text="Участки хранения"/>
+            <MenuItem fx:id="prodPackItem" mnemonicParsing="false" text="Варианты упаковки"/>
+            <MenuItem fx:id="kdNameItem" mnemonicParsing="false" text="Конструкторские наименования"/>
+            <MenuItem fx:id="vidOperItem" mnemonicParsing="false" text="Виды операции"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Сервис">
+            <MenuItem fx:id="changePasswdItem" mnemonicParsing="false" text="Изменить пароль"/>
+            <!--            <MenuItem fx:id="aboutProgramItem" mnemonicParsing="false" text="О программе"/>-->
+        </Menu>
+    </MenuBar>
+
+</AnchorPane>

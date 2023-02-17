@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="513.0" prefWidth="1169.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.handbook.prodPack.cardProdPack.tabs.OrderByProdPackViewController">
+
+    <VBox prefHeight="401.0" prefWidth="1169.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox prefHeight="3.0" prefWidth="829.0">
+            <HBox prefHeight="27.0" prefWidth="314.0">
+                <fx:include fx:id="selectionDateOfPeriodView" source="../../../../../selectionWindow/SelectionDateOfPeriodView.fxml" />
+            </HBox>
+
+            <HBox prefHeight="27.0" prefWidth="344.0">
+                <fx:include fx:id="selectionLocStoreView" source="../../../../../selectionWindow/SelectionLocStoreView.fxml" />
+            </HBox>
+
+            <Button fx:id="applyFilterBtn" mnemonicParsing="false" prefHeight="15.0" prefWidth="120.0" text="Применить" />
+            <VBox.margin>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+            </VBox.margin>
+        </HBox>
+
+        <!--	Таблица Ордер варианта упаковки-->
+        <TableView fx:id="orderProdPackTable" prefHeight="362.0" prefWidth="1235.0" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn prefWidth="100.0" text="ИД операции">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="operid" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Вид операции">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="vidoper" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Дата операции">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="oprcreate" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Дата ордера">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dtord" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="180.0" text="Участок хранения">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="locname" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="&#9;Дата &#10;производства">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dtcreate" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Кол-во п/п">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="kol" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Кол-во изд.">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="pieces" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Остаток п/п">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="balances" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Остаток изд.">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="pbalances" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem fx:id="goToOperMenuItem" mnemonicParsing="false" text="Перейти в операцию" />
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+   
+       <!--	 ПОДВАЛ.-->
+       <HBox prefHeight="28.0" prefWidth="1055.0">
+           <Label prefHeight="27.0" prefWidth="61.0" text="Строк:">
+               <font>
+                   <Font size="18.0" />
+               </font>
+           </Label>
+           <Label fx:id="rowCountLabel" prefHeight="27.0" prefWidth="61.0" text="0">
+               <font>
+                   <Font name="System Bold" size="18.0" />
+               </font>
+           </Label>
+           <Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="146.0" text="Кол-во изд.: ">
+               <font>
+                   <Font size="18.0" />
+               </font>
+           </Label>
+           <Label fx:id="sumPiecesLabel" prefHeight="27.0" prefWidth="272.0" text="0">
+               <font>
+                   <Font name="System Bold" size="18.0" />
+               </font>
+           </Label>
+       </HBox>
+    </VBox>
+
+</AnchorPane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="663.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.handbook.kdName.KDNameViewController">
+
+    <VBox prefHeight="663.0" prefWidth="432.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <!--	ПОИСК ПО КОЛОНКАМ-->
+        <HBox fx:id="filterColumnsKDNameHBox" prefHeight="33.0" prefWidth="432.0" spacing="5.0">
+            <padding>
+                <Insets bottom="3.0" left="5.0" right="7.0" top="3.0"/>
+            </padding>
+            <TextField fx:id="kdNameSearchTF" alignment="CENTER" prefHeight="23.0" prefWidth="429.0"
+                       promptText="Конструкторское наименование">
+                <padding>
+                    <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+                </padding>
+                <HBox.margin>
+                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+                </HBox.margin>
+            </TextField>
+        </HBox>
+
+        <!--	Таблица Конструкторских наименований-->
+        <TableView fx:id="kdNameTable" prefHeight="648.0" prefWidth="428.0" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn prefWidth="427.0" text="Конструкторские наименования">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </VBox>
+
+</AnchorPane>

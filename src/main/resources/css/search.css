@@ -1,0 +1,20 @@
+#artSearchTF, #packnameSearchTF, #colorSearchTF, #rowsSearchTF, #couSearchTF, #dwhSearchTF, #dtcreateSearchTF, #locnameSearchTF, #konsnameSearchTF {
+  -fx-background-image:url("/img/search_icon.png");
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: right center;
+  -fx-font-size: 12;
+}
+
+#tabNumSearch, #fioSearchTF {
+  -fx-background-image:url("/img/search_icon.png");
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: right center;
+  -fx-font-size: 12;
+}
+
+#prodSearchTF, #barcodeSearchTF, #dtactSearchTF, #dtcreateSearchTF, #actionSearchTF, #fioSearchTF, #locpackSearchTF, #locstoreSearchTF {
+  -fx-background-image:url("/img/search_icon.png");
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: right center;
+  -fx-font-size: 12;
+}

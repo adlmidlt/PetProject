@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.operation.testReport.cardTestReport.CardTestReportViewController"
+            prefHeight="513.0" prefWidth="667.0">
+
+    <VBox prefHeight="513.0" prefWidth="682.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS">
+        <HBox prefHeight="76.0" prefWidth="684.0">
+
+            <VBox prefHeight="50.0" prefWidth="438.0">
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                </padding>
+                <opaqueInsets>
+                    <Insets/>
+                </opaqueInsets>
+                <HBox prefHeight="27.0" prefWidth="437.0">
+                    <VBox.margin>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="5.0"/>
+                    </VBox.margin>
+
+                    <HBox prefHeight="27.0" prefWidth="145.0">
+                        <Label text="№ ">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="numberDocTestReportTF" prefHeight="25.0" prefWidth="106.0"/>
+                    </HBox>
+                    <HBox>
+                        <Label text="дата документа ">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <fx:include fx:id="templateDateDocView" source="../../../../template/TemplateDateView.fxml"/>
+                    </HBox>
+                </HBox>
+
+                <HBox prefHeight="7.0" prefWidth="422.0">
+                    <Label text="дата испытаний ">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <fx:include fx:id="templateDateTestReportView" source="../../../../template/TemplateDateView.fxml"/>
+                    <VBox.margin>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+            </VBox>
+            <VBox>
+                <Button fx:id="saveCardTestReportBtn" mnemonicParsing="false" prefHeight="18.0" prefWidth="180.0"
+                        text="Сохранить">
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </VBox.margin>
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Button>
+                <Button fx:id="createOperTestReportBtn" mnemonicParsing="false" prefHeight="32.0" prefWidth="180.0"
+                        text="Создать операцию">
+                    <VBox.margin>
+                        <Insets bottom="3.0" left="5.0" right="3.0"/>
+                    </VBox.margin>
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Button>
+            </VBox>
+        </HBox>
+        <!--  ТАБЛИЦА СПЕЦИФИКАЦИИ ПРОТОКОЛА ИСПЫТАНИЙ -->
+        <TableView fx:id="spTestReportTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn prefWidth="57.0" text="ИД">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="269.0" text="Конструкторское &#10;  наименование">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="107.0" text="Кол-во месяцев&#10; (срок годности)">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="extend"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="0.0" prefWidth="102.0" text="      С даты&#10; производства">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dtn"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="7.0" prefWidth="124.0" text="     По дату &#10;производства">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dtk"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+            <!--		Контекстное меню.-->
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem fx:id="addContextMenu" mnemonicParsing="false" text="Добавить"/>
+                        <MenuItem fx:id="delContextMenu" mnemonicParsing="false" text="Удалить"/>
+                        <MenuItem fx:id="updContextMenu" mnemonicParsing="false" text="Обновить"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+
+        <!--	 ПОДВАЛ.-->
+        <HBox prefHeight="28.0" prefWidth="1055.0">
+            <Label prefHeight="27.0" prefWidth="61.0" text="Строк:">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+            <Label fx:id="rowCountLabel" prefHeight="27.0" prefWidth="61.0" text="0">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Label>
+        </HBox>
+    </VBox>
+
+</AnchorPane>

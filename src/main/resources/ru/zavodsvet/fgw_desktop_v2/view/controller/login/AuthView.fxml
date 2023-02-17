@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="authWindow" prefHeight="199.0" prefWidth="343.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.login.AuthViewController">
+    <VBox prefHeight="199.0" prefWidth="437.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+        <HBox>
+            <Label alignment="CENTER" prefHeight="54.0" prefWidth="437.0" text="Авторизация">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER">
+            <Label alignment="CENTER_RIGHT" prefHeight="32.0" prefWidth="88.0" text="Логин: ">
+                <font>
+                    <Font size="22.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="tabNumTF" prefHeight="25.0" prefWidth="149.0"/>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="41.0" prefWidth="437.0">
+            <Label prefHeight="32.0" prefWidth="87.0" text="Пароль: ">
+                <font>
+                    <Font size="22.0"/>
+                </font>
+            </Label>
+            <PasswordField fx:id="passwdPF"/>
+        </HBox>
+        <HBox alignment="CENTER">
+            <VBox.margin>
+                <Insets top="10.0"/>
+            </VBox.margin>
+            <Button fx:id="authBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0"
+                    prefWidth="194.0" text="Авторизоваться">
+                <font>
+                    <Font size="22.0"/>
+                </font>
+            </Button>
+        </HBox>
+    </VBox>
+
+</AnchorPane>

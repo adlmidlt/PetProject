@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.handbook.locStore.cardLocStore.CardLocStoreViewController">
+
+    <HBox prefHeight="115.0" prefWidth="893.0">
+        <VBox prefHeight="115.0" prefWidth="738.0">
+            <HBox>
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="7.0"/>
+                </padding>
+                <HBox>
+                    <Label text="Наименование: ">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <TextField fx:id="nameLocStoreTF" prefHeight="25.0" prefWidth="161.0"/>
+                </HBox>
+                <HBox prefHeight="27.0" prefWidth="423.0">
+                    <HBox.margin>
+                        <Insets left="10.0"/>
+                    </HBox.margin>
+                    <Label text="Комментарий: ">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <TextField fx:id="commLocStoreTF" prefHeight="25.0" prefWidth="297.0"/>
+                </HBox>
+            </HBox>
+            <HBox>
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                </padding>
+                <HBox prefHeight="27.0" prefWidth="295.0">
+                    <Label text="Полезная площадь (м">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <Label text="2"/>
+                    <Label text="): ">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <TextField fx:id="areaLocStoreTF" prefWidth="92.0">
+                        <tooltip>
+                            <Tooltip text="Формат ввода 123.45"/>
+                        </tooltip>
+                    </TextField>
+                </HBox>
+                <HBox>
+                    <HBox.margin>
+                        <Insets left="10.0"/>
+                    </HBox.margin>
+                    <Label text="Возможный % использования: ">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <TextField fx:id="limitLocStoreTF" prefHeight="25.0" prefWidth="162.0">
+                        <tooltip>
+                            <Tooltip text="Формат ввода 123.45"/>
+                        </tooltip>
+                    </TextField>
+                </HBox>
+            </HBox>
+            <HBox>
+                <padding>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                </padding>
+                <CheckBox fx:id="choiceCoverLocStoreCheckBox" mnemonicParsing="false" prefHeight="29.0"
+                          prefWidth="22.0"/>
+                <Label prefHeight="27.0" prefWidth="168.0" text="крытая площадка">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <CheckBox fx:id="choiceRZDLocStoreCheckBox" mnemonicParsing="false" prefHeight="29.0"
+                          prefWidth="22.0"/>
+                <Label text="наличие ЖД путей">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+            </HBox>
+        </VBox>
+        <Separator orientation="VERTICAL" prefHeight="115.0"/>
+        <Button fx:id="saveLocStoreBtn" mnemonicParsing="false" prefHeight="104.0" prefWidth="134.0"
+                text="Сохранить">
+            <font>
+                <Font size="16.0"/>
+            </font>
+            <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </HBox.margin>
+        </Button>
+    </HBox>
+    <TabPane layoutY="115.0" prefHeight="486.0" prefWidth="980.0" tabClosingPolicy="UNAVAILABLE"
+             AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+             AnchorPane.topAnchor="115.0">
+        <Tab text="Остатки">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="461.0" prefWidth="980.0"/>
+            <fx:include fx:id="balanceByLocStoreView" source="tabs/BalanceByLocStoreView.fxml"/>
+        </Tab>
+        <Tab text="Схема">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="461.0" prefWidth="980.0"/>
+            <fx:include fx:id="schemaLocStoreView" source="tabs/SchemaLocStoreView.fxml"/>
+        </Tab>
+    </TabPane>
+
+</AnchorPane>

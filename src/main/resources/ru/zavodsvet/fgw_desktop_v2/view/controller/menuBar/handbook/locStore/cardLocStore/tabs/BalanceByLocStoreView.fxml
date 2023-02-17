@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="400.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+			fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.handbook.locStore.cardLocStore.tabs.BalanceByLocStoreViewController">
+	<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+		  AnchorPane.topAnchor="0.0">
+
+		<!--	Таблица Остатки-->
+		<TableView fx:id="balanceByLocStoreTable" prefHeight="278.0" prefWidth="451.0" VBox.vgrow="ALWAYS">
+			<columns>
+				<TableColumn prefWidth="180.0" text="Конструкторское&#10;  наименование">
+					<cellValueFactory>
+						<PropertyValueFactory property="konsname"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn prefWidth="110.0" text="Кол-во п/п">
+					<cellValueFactory>
+						<PropertyValueFactory property="balances"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn prefWidth="110.0" text="Кол-во изделий">
+					<cellValueFactory>
+						<PropertyValueFactory property="pieces"/>
+					</cellValueFactory>
+				</TableColumn>
+			</columns>
+		</TableView>
+
+		<!--	 ПОДВАЛ.-->
+		<HBox prefHeight="25.0" prefWidth="1093.0">
+			<Label prefHeight="27.0" prefWidth="61.0" text="Строк:">
+				<font>
+					<Font size="18.0"/>
+				</font>
+			</Label>
+			<Label fx:id="rowCountLabel" prefHeight="27.0" prefWidth="61.0" text="0">
+				<font>
+					<Font name="System Bold" size="18.0"/>
+				</font>
+			</Label>
+			<Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="155.0" text="Кол-во п/п: ">
+				<font>
+					<Font size="18.0"/>
+				</font>
+			</Label>
+			<Label fx:id="sumKolLabel" prefHeight="27.0" prefWidth="97.0" text="0">
+				<font>
+					<Font name="System Bold" size="18.0"/>
+				</font>
+			</Label>
+			<Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="127.0" text="Кол-во изд.: ">
+				<font>
+					<Font size="18.0"/>
+				</font>
+			</Label>
+			<Label fx:id="sumPiecesLabel" prefHeight="27.0" prefWidth="272.0" text="0">
+				<font>
+					<Font name="System Bold" size="18.0"/>
+				</font>
+			</Label>
+		</HBox>
+		<Separator prefHeight="5.0" prefWidth="1091.0"/>
+
+		<Label alignment="CENTER" prefHeight="27.0" prefWidth="1157.0" text="Детализация" textAlignment="CENTER">
+			<font>
+				<Font name="System Bold" size="18.0"/>
+			</font>
+		</Label>
+		<Separator prefHeight="0.0" prefWidth="1093.0"/>
+
+		<!--		Таблица детализации.-->
+		<TableView fx:id="balanceDetailByLocStoreTable" prefHeight="164.0" prefWidth="1093.0" VBox.vgrow="ALWAYS">
+			<columns>
+				<TableColumn prefWidth="75.0" text="Артикул">
+					<cellValueFactory>
+						<PropertyValueFactory property="art"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn prefWidth="225.0" text="Конструкторское&#10;  наименование">
+					<cellValueFactory>
+						<PropertyValueFactory property="konsname"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn prefWidth="85.0" text="Цвет">
+					<cellValueFactory>
+						<PropertyValueFactory property="color"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn prefWidth="75.0" text="Рядность">
+					<cellValueFactory>
+						<PropertyValueFactory property="rows"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn prefWidth="75.0" text="Кол-во в &#10;    ряду">
+					<cellValueFactory>
+						<PropertyValueFactory property="cou"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn prefWidth="110.0" text="Г/Ш/В">
+					<cellValueFactory>
+						<PropertyValueFactory property="dwh"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn prefWidth="110.0" text="        Дата &#10;производства">
+					<cellValueFactory>
+						<PropertyValueFactory property="dtcreate"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn prefWidth="110.0" text="Кол-во п/п">
+					<cellValueFactory>
+						<PropertyValueFactory property="balances"/>
+					</cellValueFactory>
+				</TableColumn>
+				<TableColumn prefWidth="110.0" text="Кол-во изделий">
+					<cellValueFactory>
+						<PropertyValueFactory property="pieces"/>
+					</cellValueFactory>
+				</TableColumn>
+			</columns>
+		</TableView>
+
+
+		<!--	 ПОДВАЛ.-->
+		<HBox prefHeight="0.0" prefWidth="1093.0">
+			<Label prefHeight="27.0" prefWidth="61.0" text="Строк:">
+				<font>
+					<Font size="18.0"/>
+				</font>
+			</Label>
+			<Label fx:id="rowDetailCountLabel" prefHeight="27.0" prefWidth="61.0" text="0">
+				<font>
+					<Font name="System Bold" size="18.0"/>
+				</font>
+			</Label>
+			<Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="155.0" text="Кол-во п/п: ">
+				<font>
+					<Font size="18.0"/>
+				</font>
+			</Label>
+			<Label fx:id="sumDetailKolLabel" prefHeight="27.0" prefWidth="97.0" text="0">
+				<font>
+					<Font name="System Bold" size="18.0"/>
+				</font>
+			</Label>
+			<Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="146.0" text="Кол-во изд.: ">
+				<font>
+					<Font size="18.0"/>
+				</font>
+			</Label>
+			<Label fx:id="sumDetailPiecesLabel" prefHeight="27.0" prefWidth="272.0" text="0">
+				<font>
+					<Font name="System Bold" size="18.0"/>
+				</font>
+			</Label>
+		</HBox>
+	</VBox>
+</AnchorPane>

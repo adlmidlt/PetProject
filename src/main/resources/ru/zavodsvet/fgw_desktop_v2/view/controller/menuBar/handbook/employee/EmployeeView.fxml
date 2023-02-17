@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.handbook.employee.EmployeeViewController">
+
+    <VBox>
+        <!--	ПОИСК ПО КОЛОНКАМ-->
+        <HBox fx:id="filterColumnsEmployeeHBox" prefHeight="33.0" prefWidth="475.0" spacing="5.0">
+
+            <TextField fx:id="tabNumSearchTF" prefHeight="23.0" prefWidth="197.0" promptText="Табельный номер">
+                <HBox.margin>
+                    <Insets left="3.0" top="3.0"/>
+                </HBox.margin>
+            </TextField>
+            <TextField fx:id="fioSearchTF" prefHeight="23.0" prefWidth="429.0" promptText="ФИО">
+                <HBox.margin>
+                    <Insets left="3.0" right="3.0" top="3.0"/>
+                </HBox.margin>
+            </TextField>
+        </HBox>
+
+        <!--	Таблица сотрудников. -->
+        <TableView fx:id="employeeTable" prefHeight="371.0" prefWidth="475.0" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn prefWidth="119.0" text="Табельный &#10;    номер">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="349.0" text="ФИО">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="fio"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </VBox>
+
+</AnchorPane>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="25.0" prefWidth="203.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.template.TemplateDateTimeViewController">
+
+    <HBox alignment="CENTER" prefHeight="25.0" prefWidth="231.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="121.0">
+            <fx:include fx:id="templateDateView" source="TemplateDateView.fxml" />
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0">
+            <TextField fx:id="hoursTF" maxWidth="33.0" promptText="чч">
+                <tooltip>
+                    <Tooltip text="Формат часа (чч)" />
+                </tooltip>
+            </TextField>
+            <Label maxHeight="25.0" text=":" />
+            <TextField fx:id="minutesTF" maxWidth="33.0" promptText="мм">
+                <tooltip>
+                    <Tooltip text="Формат минут (мм)" />
+                </tooltip>
+            </TextField>
+        </HBox>
+    </HBox>
+
+</AnchorPane>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="278.0" prefWidth="798.0" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.handbook.prodPack.cardProdPack.tabs.BalanceByProdPackViewController">
+
+    <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+          AnchorPane.topAnchor="0.0">
+
+        <!--	Таблица Остатки-->
+        <TableView fx:id="balanceTable" prefHeight="278.0" prefWidth="451.0" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn prefWidth="180.0" text="Участок хранения">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="locname"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="        Дата &#10;производства">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dtcreate"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Кол-во п/п">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="balances"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="110.0" text="Кол-во изделий">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="pieces"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+        <!--	 ПОДВАЛ.-->
+        <HBox prefHeight="25.0" prefWidth="1093.0">
+            <Label prefHeight="27.0" prefWidth="61.0" text="Строк:">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+            <Label fx:id="rowCountLabel" prefHeight="27.0" prefWidth="61.0" text="0">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Label>
+            <Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="155.0" text="Кол-во п/п: ">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+            <Label fx:id="sumKolLabel" prefHeight="27.0" prefWidth="97.0" text="0">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Label>
+            <Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="127.0" text="Кол-во изд.: ">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+            <Label fx:id="sumPiecesLabel" prefHeight="27.0" prefWidth="272.0" text="0">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Label>
+        </HBox>
+    </VBox>
+
+</AnchorPane>

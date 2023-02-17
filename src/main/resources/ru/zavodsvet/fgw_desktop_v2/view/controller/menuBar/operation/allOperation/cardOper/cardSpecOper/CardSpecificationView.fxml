@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="cardSpecMainWindow" prefHeight="322.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.operation.allOperation.cardOper.cardSpecOper.CardSpecificationViewController">
+
+    <!--	Шапка "Карточки спецификации"-->
+    <VBox prefHeight="85.0" prefWidth="465.0">
+
+        <!--		Варианта упаковки.-->
+        <HBox>
+            <Label prefHeight="27.0" prefWidth="103.0" text="Конс. наим. ">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="packnameLabel" prefHeight="27.0" prefWidth="346.0" text="Неизвестная">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+        </HBox>
+
+        <!--		Артикул, рядность, кол-во изделий.-->
+        <HBox>
+            <Label text="Артикул: ">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="artLabel" text="0">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+            <Label alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="83.0" text="Рядов: ">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="rowsLabel" text="0">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="35.0" text=" по">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="couLabel" alignment="CENTER" prefHeight="27.0" prefWidth="98.0" text="0">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="73.0" text="изделий">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+        </HBox>
+
+        <!--		Цвет.-->
+        <HBox>
+            <Label text="Цвет: ">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Label fx:id="colorLabel" text="Неизвестный">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+        </HBox>
+        <opaqueInsets>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+        </opaqueInsets>
+        <padding>
+            <Insets bottom="3.0" left="12.0" right="3.0" top="3.0" />
+        </padding>
+
+    </VBox>
+
+    <!--	Большая кнопка выбора в верхнем правом углу. -->
+    <Button fx:id="selectionBtn" layoutX="465.0" layoutY="2.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="134.0" text="Выбрать...">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Button>
+
+    <!--	Основное тело для редактирования информации.-->
+    <VBox layoutY="96.0" prefHeight="175.0" prefWidth="600.0">
+        <padding>
+            <Insets bottom="3.0" left="12.0" right="3.0" top="3.0" />
+        </padding>
+
+        <!--		Дата производства.-->
+        <HBox prefHeight="61.0" prefWidth="585.0">
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="41.0" prefWidth="166.0" text="Дата производства:">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <fx:include fx:id="templateDateView" source="../../../../../template/TemplateDateView.fxml" />
+        </HBox>
+
+        <!--		Кол-во п/п, изделий, кнопка Сбросить.-->
+        <HBox prefHeight="43.0" prefWidth="585.0">
+            <Label alignment="TOP_LEFT" text="Кол-во п/п ">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <TextField fx:id="kolTF" prefHeight="25.0" prefWidth="150.0" />
+            <Label text="=">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <TextField fx:id="piecesTF" prefHeight="25.0" prefWidth="150.0" />
+            <Label prefHeight="27.0" prefWidth="95.0" text=" изделий">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Button fx:id="resetKolOnOldBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Сбросить" />
+        </HBox>
+
+        <!--		ОТКУДА и кнопка Выбрать...-->
+        <HBox prefHeight="45.0" prefWidth="585.0">
+            <Label fx:id="fromtoLabel" alignment="TOP_LEFT" prefHeight="27.0" prefWidth="67.0" text="Откуда: ">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <TextField fx:id="fromtoTF" prefHeight="25.0" prefWidth="437.0" />
+            <Button fx:id="selectionFromtoBtn" mnemonicParsing="false" text="Выбрать..." />
+        </HBox>
+
+        <!--		КУДА и кнопка Выбрать...-->
+        <HBox prefHeight="45.0" prefWidth="585.0">
+            <Label fx:id="loctoLabel" alignment="TOP_LEFT" prefHeight="27.0" prefWidth="66.0" text="Куда: ">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <TextField fx:id="loctoTF" prefHeight="25.0" prefWidth="439.0" />
+            <Button fx:id="selectionLoctoBtn" mnemonicParsing="false" text="Выбрать..." />
+        </HBox>
+    </VBox>
+
+    <!--	Разделители.-->
+    <Separator layoutY="85.0" prefHeight="5.0" prefWidth="463.0" />
+    <Separator layoutX="459.0" layoutY="-4.0" orientation="VERTICAL" prefHeight="91.0" prefWidth="8.0" />
+
+    <!--	Добавить.-->
+    <Button fx:id="okBtn" layoutX="85.0" layoutY="284.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="150.0" text="ОК" />
+
+    <!--	Отмена.-->
+    <Button fx:id="cancelBtn" layoutX="367.0" layoutY="284.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="150.0" text="Отмена" />
+
+</AnchorPane>

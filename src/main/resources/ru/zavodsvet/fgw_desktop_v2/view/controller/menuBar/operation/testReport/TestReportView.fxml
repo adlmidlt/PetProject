@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="557.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.operation.testReport.TestReportViewController">
+    <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+        <!--      ФИЛЬТР ВЕРХНИЙ-->
+        <TitledPane text="Фильтр">
+            <HBox prefHeight="109.0" prefWidth="612.0">
+                <VBox prefHeight="92.0" prefWidth="469.0">
+                    <HBox prefHeight="27.0" prefWidth="452.0">
+                        <fx:include fx:id="selectionKDNameView" source="../../../selectionWindow/SelectionKDNameView.fxml" />
+                  <VBox.margin>
+                     <Insets left="5.0" />
+                  </VBox.margin>
+                    </HBox>
+                    <HBox>
+                        <CheckBox fx:id="dateCreateDocCheckBox" mnemonicParsing="false" prefHeight="27.0" prefWidth="17.0" selected="true">
+                            <HBox.margin>
+                                <Insets left="5.0" top="5.0" />
+                            </HBox.margin>
+                        </CheckBox>
+                        <Label text="дата документа">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Label>
+                        <HBox>
+                            <fx:include fx:id="selectionDateOfPeriodDocView" source="../../../selectionWindow/SelectionDateOfPeriodView.fxml" />
+                        </HBox>
+                    </HBox>
+                    <HBox prefHeight="23.0" prefWidth="500.0">
+                        <CheckBox fx:id="dateCreateReportCheckBox" mnemonicParsing="false" prefHeight="27.0" prefWidth="10.0">
+                            <HBox.margin>
+                                <Insets left="5.0" top="5.0" />
+                            </HBox.margin>
+                        </CheckBox>
+                        <Label text="дата испытания">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Label>
+                        <HBox>
+                            <fx:include fx:id="selectionDateOfPeriodTestReportView" source="../../../selectionWindow/SelectionDateOfPeriodView.fxml" />
+                        </HBox>
+                    </HBox>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+                </VBox>
+                <Button fx:id="applyFilterBtn" mnemonicParsing="false" prefHeight="101.0" prefWidth="135.0" text="Применить">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </HBox.margin>
+                </Button>
+                <padding>
+                    <Insets bottom="-2.0" top="-2.0" />
+                </padding>
+            </HBox>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </TitledPane>
+
+        <VBox VBox.vgrow="ALWAYS">
+            <!--  ТАБЛИЦА ПРОТОКОЛА ИСПЫТАНИЙ -->
+            <TableView fx:id="testReportTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn prefWidth="75.0" text="ИД">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="130.0" text="№ документа">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="num" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="131.0" text="Дата документа">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="ddoc" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn minWidth="0.0" prefWidth="117.0" text="Дата испытания">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="dtest" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn minWidth="7.0" prefWidth="85.0" text="ИД операции">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="operid" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+                <!--		Контекстное меню.-->
+                <contextMenu>
+                    <ContextMenu>
+                        <items>
+                            <MenuItem fx:id="addContextMenu" mnemonicParsing="false" text="Добавить" />
+                            <MenuItem fx:id="delContextMenu" mnemonicParsing="false" text="Удалить" />
+                            <MenuItem fx:id="updContextMenu" mnemonicParsing="false" text="Обновить" />
+                            <MenuItem fx:id="goToOperContextMenu" mnemonicParsing="false" text="Перейти в операцию" />
+                        </items>
+                    </ContextMenu>
+                </contextMenu>
+            </TableView>
+
+            <!--	 ПОДВАЛ.-->
+            <HBox prefHeight="28.0" prefWidth="1055.0">
+                <Label prefHeight="27.0" prefWidth="61.0" text="Строк:">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="rowCountLabel" prefHeight="27.0" prefWidth="61.0" text="0">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+            </HBox>
+        </VBox>
+    </VBox>
+</AnchorPane>

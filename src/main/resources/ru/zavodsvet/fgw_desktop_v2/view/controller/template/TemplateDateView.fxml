@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="25.0" prefWidth="121.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.template.TemplateDateViewController">
+
+    <HBox alignment="CENTER" prefHeight="25.0" prefWidth="143.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <TextField fx:id="yearTF" prefColumnCount="4" prefWidth="44.0" promptText="гггг">
+            <tooltip>
+                <Tooltip text="Формат года (гггг)" />
+            </tooltip>
+        </TextField>
+        <Label prefHeight="25.0" prefWidth="5.0" text="-" />
+        <TextField fx:id="monthValueTF" prefColumnCount="2" prefWidth="33.0" promptText="мм">
+            <tooltip>
+                <Tooltip text="Формат месяца (мм)" />
+            </tooltip>
+        </TextField>
+        <Label prefHeight="25.0" prefWidth="4.0" text="-" />
+        <TextField fx:id="dayOfMonthTF" prefWidth="33.0" promptText="дд">
+            <tooltip>
+                <Tooltip text="Формат дня (дд)" />
+            </tooltip>
+        </TextField>
+    </HBox>
+
+</AnchorPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="255.0" prefWidth="269.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.handbook.vidOper.VidOperationViewController">
+
+    <!--	Таблица видов операции. -->
+    <TableView fx:id="vidOperTable" layoutY="29.0" prefHeight="255.0" prefWidth="430.0" AnchorPane.bottomAnchor="0.0"
+               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+            <TableColumn prefWidth="68.0" text="Код">
+                <cellValueFactory>
+                    <PropertyValueFactory property="kod"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn editable="false" prefWidth="196.0" text="Вид операции">
+                <cellValueFactory>
+                    <PropertyValueFactory property="name"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+</AnchorPane>

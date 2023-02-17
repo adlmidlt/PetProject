@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="404.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.handbook.locStore.LocStoreViewController">
+
+    <TreeTableView fx:id="locStoreTreeTable" prefHeight="400.0" prefWidth="392.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+            <TreeTableColumn fx:id="nameTreeColumn" prefWidth="100.0" sortable="false" text="Наименование">
+                <cellValueFactory>
+                    <TreeItemPropertyValueFactory property="name" />
+                </cellValueFactory>
+            </TreeTableColumn>
+            <TreeTableColumn fx:id="commTreeColumn" prefWidth="200.0" sortable="false" text="Комментарии">
+                <cellValueFactory>
+                    <TreeItemPropertyValueFactory property="comm" />
+                </cellValueFactory>
+            </TreeTableColumn>
+            <TreeTableColumn fx:id="locStoreProgressBarColumn" prefWidth="160.0" text="Заполняемость">
+                <cellValueFactory>
+                    <TreeItemPropertyValueFactory property="fill" />
+                </cellValueFactory>
+            </TreeTableColumn>
+        </columns>
+        <contextMenu>
+            <ContextMenu>
+                <items>
+                    <MenuItem fx:id="cardLocStoreMenuItem" mnemonicParsing="false" text="Карточка" />
+                    <CheckMenuItem fx:id="isArchiveCheckMenuItem" mnemonicParsing="false" text="Показать архив" />
+                    <MenuItem fx:id="updListLocStoreMenuItem" mnemonicParsing="false" text="Обновить" />
+                    <MenuItem fx:id="exportInExcelMenuItem" mnemonicParsing="false" text="Экспорт в Эксель" />
+                    <SeparatorMenuItem />
+                    <Menu mnemonicParsing="false" text="Действия">
+                        <Menu mnemonicParsing="false" text="Добавить">
+                            <MenuItem fx:id="addOnCurrentLvlLocStoreMenuItem" mnemonicParsing="false" text="На текущий уровень" />
+                            <Menu mnemonicParsing="false" text="На уровень ниже">
+                                <MenuItem fx:id="addOnDownLvlLocStoreMenuItem" mnemonicParsing="false" text="Один" />
+                                <MenuItem fx:id="addOnDownLvlALotLocStoreMenuItem" mnemonicParsing="false" text="Несколько" />
+                            </Menu>
+                        </Menu>
+                        <MenuItem fx:id="deleteLocStoreMenuItem" mnemonicParsing="false" text="Удалить" />
+                        <MenuItem fx:id="inArchiveLocStoreMenuItem" mnemonicParsing="false" text="В архив/из архива" />
+                        <SeparatorMenuItem />
+                        <MenuItem fx:id="revealAllLocStoreMenuItem" mnemonicParsing="false" text="Раскрыть всё" />
+                    </Menu>
+                </items>
+            </ContextMenu>
+        </contextMenu>
+        <TreeItem fx:id="locStoreTreeItemRoot" />
+    </TreeTableView>
+
+</AnchorPane>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="592.0" prefWidth="1171.0" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ru.zavodsvet.fgw_desktop_v2.controller.menuBar.handbook.prodPack.cardProdPack.CardProdPackViewController">
+
+
+    <VBox prefHeight="91.0" prefWidth="671.0" AnchorPane.bottomAnchor="501.0" AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="273.0" AnchorPane.topAnchor="0.0">
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+        </padding>
+        <HBox>
+            <HBox>
+                <Label text="артикул:  ">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="artLabel" prefHeight="27.0" prefWidth="78.0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+            </HBox>
+            <HBox>
+                <Label prefHeight="27.0" prefWidth="123.0" text="констр. наим.: ">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="packnameLabel" prefHeight="27.0" prefWidth="369.0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+            </HBox>
+        </HBox>
+        <HBox>
+            <HBox>
+                <Label text="стекло: ">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="colorLabel" prefHeight="27.0" prefWidth="153.0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+            </HBox>
+            <HBox>
+                <Label text="ГхШхВ: ">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="dwhLabel" prefHeight="27.0" prefWidth="219.0">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+            </HBox>
+        </HBox>
+        <HBox>
+            <Label text="рядность: ">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+            <Label fx:id="rowsLabel" alignment="CENTER" prefHeight="27.0" prefWidth="29.0">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="28.0" text="по ">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+            <Label fx:id="couLabel" alignment="CENTER" prefHeight="27.0" prefWidth="60.0">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="40.0" text="изд.">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="22.0" text="=">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+            <Label fx:id="totalCouLabel" alignment="CENTER" prefHeight="27.0" prefWidth="90.0">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Label>
+            <Label text="в п/п">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+        </HBox>
+    </VBox>
+    <Separator layoutX="7.0" layoutY="90.0" prefHeight="0.0" prefWidth="671.0" AnchorPane.leftAnchor="0.0"
+               AnchorPane.topAnchor="90.0"/>
+    <Separator layoutX="668.0" layoutY="3.0" orientation="VERTICAL" prefHeight="91.0" prefWidth="0.0"
+               AnchorPane.leftAnchor="668.0" AnchorPane.topAnchor="0.0"/>
+    <TabPane layoutY="91.0" prefHeight="489.0" prefWidth="944.0" tabClosingPolicy="UNAVAILABLE"
+             AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+             AnchorPane.topAnchor="91.0">
+        <Tab fx:id="balanceByProdPackTab" text="Остатки">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+            <fx:include fx:id="balanceByProdPackView" source="tabs/BalanceByProdPackView.fxml"/>
+        </Tab>
+        <Tab fx:id="orderByProdPackTab" text="Ордера">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+            <fx:include fx:id="orderByProdPackView" source="tabs/OrderByProdPackView.fxml"/>
+        </Tab>
+    </TabPane>
+</AnchorPane>

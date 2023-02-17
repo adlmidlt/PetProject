@@ -1,0 +1,25 @@
+.tree-table-view:focused .tree-table-row-cell:filled:focused {
+    -fx-background-color: -fx-box-border, silver;
+    -fx-border-color: silver;
+    -fx-border-width: 1.5 0 1.5 0;
+}
+
+.tree-table-cell {
+    -fx-border-color: silver, silver;
+    -fx-border-width: 0 0 1 0, 0 1 0 0;
+    -fx-text-fill: black
+}
+
+#balin-column.tree-table-cell, #balprih-column.tree-table-cell, #balrash-column.tree-table-cell, #balout-column.tree-table-cell {
+    -fx-background-color: #ffffdf;
+}
+
+#balinp-column.tree-table-cell, #balprihp-column.tree-table-cell, #balrashp-column.tree-table-cell, #baloutp-column.tree-table-cell {
+    -fx-background-color: #c5ffac;
+}
+
+#locStore-column.tree-table-cell, #art-column.tree-table-cell, #dtcreate-column.tree-table-cell, #color-column.tree-table-cell,
+ #rows-column.tree-table-cell, #cou-column.tree-table-cell, #dwh-column.tree-table-cell {
+    -fx-background-color: #ffffff;
+}
+
